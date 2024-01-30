@@ -1,0 +1,54 @@
+{% extends "body.html" %}
+{% load static %}
+
+{% block title %} EĞİTİMLER {% endblock  %}
+
+{% block content %}
+
+    <div class="container">
+
+
+        <div class="row justify-content-center p-5">
+            <button style="background: linear-gradient(89.7deg, rgb(0, 0, 0) -10.7%, rgb(53, 92, 125) 88.8%)!important;" class="btn text-light shadow" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">Eğitim Kategorileri</button>
+        </div>
+       
+
+        <div style="background: linear-gradient(89.7deg, rgb(0, 0, 0) -10.7%, rgb(53, 92, 125) 88.8%)!important;" class="offcanvas offcanvas-bottom p-3" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title text-light" id="offcanvasBottomLabel">KATEGORILER</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body small">
+                <div class="row mt-5">
+                    <ul class="list-group list-group-horizontal row text-center"></ul>
+                        {% for c in categories %}                            
+                            <div class="col-12 col-md-6 col-lg-6 col-xl-3 col-xxl-2 mb-3">
+                                <a href="{% url 'edu_by_category' c.slug %}" class="btn btn-outline-light col-12 p-3">{{c.name}}</a>
+                            </div>                        
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <div class="row mt-5 g-5">
+            {% if educations|length > 0 %}
+                {% for edu in educations  %}
+                    {% if edu.is_active %}
+                        {% include "blog/components/_educard.html" %}
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+                <div class="alert alert-danger"> Bu Kategoride Eğitim Bulunmamaktadır. </div>
+            {%endif%}
+        </div>
+
+    </div>
+
+    
+   
+
+
+{% endblock  %}

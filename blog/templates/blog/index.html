@@ -1,0 +1,30 @@
+{% extends 'body.html' %}
+{% load static %}
+
+{% block title %} ANASAYFA {% endblock %}
+
+{% block hero %}
+
+   {% include "compont/_heroImg.html" %}
+
+{% endblock %}
+
+
+
+{% block content %}
+
+    <div class="container">
+        <div class="row g-3">
+            {% for home in anasayfa  %}
+            
+                {% include "blog/components/_blogcards.html" %}
+    
+            {% endfor %}
+        </div>
+    </div>
+    
+
+{% endblock %}
+
+
+

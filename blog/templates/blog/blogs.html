@@ -1,0 +1,23 @@
+{% extends 'body.html' %}
+{% load static %}
+
+{% block title %} BLOGLAR {% endblock %}
+
+{% block content %}
+        <div class="row g-2">
+            {% for home in blogs  %}
+                <div class="col-12 col-md-6 col-xl-4 ">
+                    <div class="p-3 shadow card rounded">
+                        <img class="bd-placeholder-img card-img-top width-fluid" src="{{home.resim.url}}">
+                        <div class="card-body">
+                            <h5 class="card-title text-success">{{home.name}}</h5>
+                            <p class="card-text" style="height: 200px!important; overflow: hidden;">{{home.description|safe}}</p>
+                            <p class="card-text"><small class="text-muted">{{ home.post_time }}</small></p>
+                            <a class="btn btn-outline-success" href="{% url 'details' home.slug %}">OKU</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+{% endblock %}
+

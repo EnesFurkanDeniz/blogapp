@@ -1,0 +1,19 @@
+{% extends "body.html" %}
+{% load static %}
+
+{% block title %}{{educations.name}}{% endblock %}
+
+{% block content %}
+
+<div class="card mb-3">
+    <img class="bd-placeholder-img card-img-top" src="{{educations.picture.url}}" width="100%" height="180" ></img>
+
+    <div class="card-body">
+      <h5 class="card-title text-success">{{educations.name}}</h5>
+      <p class="card-text">{{educations.description}}</p>
+      <p class="card-text"><small class="text-muted">{{educations.post_time}}</small></p>
+    </div>
+</div>
+
+
+{% endblock  %}

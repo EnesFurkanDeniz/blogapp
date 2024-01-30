@@ -1,0 +1,22 @@
+{% extends "body.html" %}
+{% load static %}
+
+{% block title %}Details{% endblock %}
+
+
+{% block content %}
+
+
+<div class="card mb-3">
+    <img class="bd-placeholder-img card-img-top" src="{{details.resim.url}}" width="100%" height="180" ></img>
+
+    <div class="card-body">
+      <h5 class="card-title text-success">{{details.name}}</h5>
+      <p class="card-text">{{details.description}}</p>
+      <p class="card-text"><small class="text-muted">{{details.post_time}}</small></p>
+    </div>
+</div>
+
+
+
+{% endblock  %}

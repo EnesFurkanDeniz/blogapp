@@ -1,0 +1,42 @@
+{% extends 'body.html' %}
+{% load static %}
+
+{% block title %} LOGIN {% endblock %}
+
+{% block hero %}
+
+   {% include "compont/_heroImg.html" %}
+
+{% endblock %}
+
+
+
+{% block content %}
+
+    <div class="container">
+        <div class="row p-5">
+           <form action="{% url 'login' %}" method="POST">
+            {% if error %}
+                <div class="alert alert-warning">
+                    {{error}} 
+                </div>
+            {% endif %}
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="username" class="form-label">Kullanıcı Adı</label>
+                <input type="text" name="username" class="form-control" placeholder="Kullanıcı Adı">
+            </div>
+            <div class="mb-3">
+                <label for="userpassword" class="form-label">Password</label>
+                <input type="password" name="userpassword" class="form-control" placeholder="Kullanıcı Şifre">
+            </div>
+            <input type="submit" class="btn btn-outline-light" name="" >
+           </form>
+        </div>
+    </div>
+    
+
+{% endblock %}
+
+
+
